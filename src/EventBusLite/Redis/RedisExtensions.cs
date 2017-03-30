@@ -3,7 +3,7 @@ using System.Reflection;
 using Autofac;
 using StackExchange.Redis;
 
-namespace EventBusLite.Bus.Redis
+namespace EventBusLite.Redis
 {
     public static class RedisExtensions
     {

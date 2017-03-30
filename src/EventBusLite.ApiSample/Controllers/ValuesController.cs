@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
-using EventBusLite.Bus;
 using Microsoft.AspNetCore.Mvc;
 using System.Reactive;
 
@@ -12,9 +11,7 @@ namespace EventBusLite.ApiSample.Controllers
     {
         private readonly IEventBus _eventBus;
 
-        public ValuesController(
-            IEventBus eventBus
-            )
+        public ValuesController(IEventBus eventBus)
         {
             _eventBus = eventBus;
         }

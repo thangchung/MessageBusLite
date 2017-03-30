@@ -4,7 +4,7 @@ using System.Reactive.Linq;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace EventBusLite.Bus.Redis
+namespace EventBusLite.Redis
 {
     public class RedisPublisher : IDisposable, IEventBus
     {

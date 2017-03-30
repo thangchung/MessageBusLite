@@ -1,6 +1,6 @@
 ﻿namespace EventBusLite
 {
-    public interface IEvent
+    public interface IMessage
     {
     }
 }

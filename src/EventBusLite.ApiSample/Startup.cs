@@ -2,9 +2,7 @@
 using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using EventBusLite.Bus;
-using EventBusLite.Bus.InMemory;
-using EventBusLite.Bus.Redis;
+using EventBusLite.InMemory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
