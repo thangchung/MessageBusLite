@@ -2,14 +2,14 @@
 using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using EventBusLite.InMemory;
+using MessageBusLite.InMemory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace EventBusLite.ApiSample
+namespace MessageBusLite.ApiSample
 {
     public class Startup
     {
@@ -36,7 +36,7 @@ namespace EventBusLite.ApiSample
             builder.Populate(services);
             var container = builder.Build();
 
-            container.Resolve<IEventConsumer>().Subscriber.Subscribe();
+            container.Resolve<IMessageConsumer>().Subscriber.Subscribe();
 
             return container.Resolve<IServiceProvider>();
         }

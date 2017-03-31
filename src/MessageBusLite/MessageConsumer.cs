@@ -4,15 +4,13 @@ using System.Linq;
 using System.Reactive;
 using System.Reflection;
 
-namespace EventBusLite
+namespace MessageBusLite
 {
-    public class EventConsumer : IEventConsumer
+    public class MessageConsumer : IMessageConsumer
     {
-        private bool _disposed;
-
-        public EventConsumer(
+        public MessageConsumer(
             IMessageSubscriber subscriber,
-            IEnumerable<IEventHandler> eventHandlers)
+            IEnumerable<IMessageHandler> eventHandlers)
         {
             Subscriber = subscriber;
             EventHandlers = eventHandlers;
@@ -37,14 +35,13 @@ namespace EventBusLite
             };
         }
 
-        public IEnumerable<IEventHandler> EventHandlers { get; }
+        public IEnumerable<IMessageHandler> EventHandlers { get; }
 
         public IMessageSubscriber Subscriber { get; }
 
         public void Dispose()
         {
             Subscriber.Dispose();
-            _disposed = true;
         }
     }
 }

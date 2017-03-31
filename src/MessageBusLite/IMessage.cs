@@ -1,4 +1,4 @@
-﻿namespace EventBusLite
+﻿namespace MessageBusLite
 {
     public interface IMessage
     {

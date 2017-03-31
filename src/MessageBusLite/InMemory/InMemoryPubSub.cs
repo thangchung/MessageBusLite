@@ -2,17 +2,16 @@
 using System.Collections.Concurrent;
 using System.Reactive.Subjects;
 
-namespace EventBusLite.InMemory
+namespace MessageBusLite.InMemory
 {
     public class InMemoryPubSub : IPubSub
     {
         private readonly ConcurrentDictionary<string, Subject<object>> _subjects =
             new ConcurrentDictionary<string, Subject<object>>();
 
-        public void Publish(string channelName, object token, bool notifySelf)
+        public void Publish(string channelName, object token)
         {
-            if (notifySelf)
-                _subjects.GetOrAdd(channelName, k => new Subject<object>()).OnNext(token);
+            _subjects.GetOrAdd(channelName, k => new Subject<object>()).OnNext(token);
         }
 
         public IDisposable Subscribe(string channelName, Action<object> handler)

@@ -2,9 +2,9 @@
 using System.Reactive;
 using System.Reactive.Linq;
 
-namespace EventBusLite.InMemory
+namespace MessageBusLite.InMemory
 {
-    public class InMemoryPublisher : IEventBus
+    public class InMemoryPublisher : IMessageBus
     {
         private readonly IPubSub _subscriber;
         private readonly string _channelName;
@@ -19,7 +19,7 @@ namespace EventBusLite.InMemory
         {
             return Observable.Start(() =>
             {
-                _subscriber.Publish(_channelName, @event, true);
+                _subscriber.Publish(_channelName, @event);
             });
         }
     }

@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace EventBusLite.InMemory
+namespace MessageBusLite.InMemory
 {
     public interface IPubSub
     {
-        void Publish(string channelName, object token, bool notifySelf);
+        void Publish(string channelName, object token);
         IDisposable Subscribe(string channelName, Action<object> handler);
     }
 }

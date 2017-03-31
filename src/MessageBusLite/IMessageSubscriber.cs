@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reactive;
 
-namespace EventBusLite
+namespace MessageBusLite
 {
     public interface IMessageSubscriber : IDisposable
     {

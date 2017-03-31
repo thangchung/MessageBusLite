@@ -2,7 +2,7 @@
 using System.Reactive;
 using System.Reactive.Linq;
 
-namespace EventBusLite.InMemory
+namespace MessageBusLite.InMemory
 {
     public class InMemorySubscriber : IMessageSubscriber
     {

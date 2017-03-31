@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace EventBusLite
+namespace MessageBusLite
 {
     [AttributeUsage(AttributeTargets.Method, Inherited = false)]
-    public class EventHandlerAttribute : Attribute
+    public class MessageHandlerAttribute : Attribute
     {
     }
 }

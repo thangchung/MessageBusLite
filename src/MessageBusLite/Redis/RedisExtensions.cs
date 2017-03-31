@@ -3,7 +3,7 @@ using System.Reflection;
 using Autofac;
 using StackExchange.Redis;
 
-namespace EventBusLite.Redis
+namespace MessageBusLite.Redis
 {
     public static class RedisExtensions
     {
@@ -21,7 +21,7 @@ namespace EventBusLite.Redis
                 .SingleInstance();
 
             builder.Register(x => new RedisPublisher(connectionMultiplexer.GetSubscriber(), "notify"))
-                .As<IEventBus>()
+                .As<IMessageBus>()
                 .SingleInstance();
 
             builder.RegisterAssemblyTypes(registerAssembly)
@@ -31,11 +31,11 @@ namespace EventBusLite.Redis
                 .Named<IMessageSubscriber>("EventSubscriber");
 
             builder.Register(x =>
-                new EventConsumer(
+                new MessageConsumer(
                     x.ResolveNamed<IMessageSubscriber>("EventSubscriber"),
-                    (IEnumerable<IEventHandler>)x.Resolve(typeof(IEnumerable<IEventHandler>))
+                    (IEnumerable<IMessageHandler>)x.Resolve(typeof(IEnumerable<IMessageHandler>))
                     )
-                ).As<IEventConsumer>();
+                ).As<IMessageConsumer>();
 
             return builder;
         }

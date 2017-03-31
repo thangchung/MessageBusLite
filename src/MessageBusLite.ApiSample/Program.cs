@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace EventBusLite.ApiSample
+namespace MessageBusLite.ApiSample
 {
     public class Program
     {

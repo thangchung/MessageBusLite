@@ -2,7 +2,7 @@
 using System.Reflection;
 using Autofac;
 
-namespace EventBusLite.InMemory
+namespace MessageBusLite.InMemory
 {
     public static class InMemoryExtensions
     {
@@ -10,7 +10,7 @@ namespace EventBusLite.InMemory
         {
             builder.RegisterType<InMemoryPubSub>().As<IPubSub>().SingleInstance();
             builder.Register(x => new InMemoryPublisher(x.Resolve<IPubSub>(), "notify"))
-                .As<IEventBus>()
+                .As<IMessageBus>()
                 .SingleInstance();
 
             builder.RegisterAssemblyTypes(registerAssembly)
@@ -21,11 +21,12 @@ namespace EventBusLite.InMemory
                 .SingleInstance();
 
             builder.Register(x =>
-                new EventConsumer(
+                new MessageConsumer(
                     x.ResolveNamed<IMessageSubscriber>("EventSubscriber"),
-                    (IEnumerable<IEventHandler>)x.Resolve(typeof(IEnumerable<IEventHandler>))
+                    (IEnumerable<IMessageHandler>)x.Resolve(typeof(IEnumerable<IMessageHandler>))
                     )
-                ).As<IEventConsumer>();
+                ).As<IMessageConsumer>()
+                .SingleInstance();
 
             return builder;
         }

@@ -4,9 +4,9 @@ using System.Reactive.Linq;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace EventBusLite.Redis
+namespace MessageBusLite.Redis
 {
-    public class RedisPublisher : IDisposable, IEventBus
+    public class RedisPublisher : IDisposable, IMessageBus
     {
         private readonly ISubscriber _subscriber;
         private readonly string _channelName;

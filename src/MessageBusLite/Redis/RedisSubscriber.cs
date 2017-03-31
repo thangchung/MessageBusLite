@@ -4,7 +4,7 @@ using System.Reactive.Linq;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace EventBusLite.Redis
+namespace MessageBusLite.Redis
 {
     public class RedisSubscriber : IMessageSubscriber
     {

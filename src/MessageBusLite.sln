@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusLite.ApiSample", "EventBusLite.ApiSample\EventBusLite.ApiSample.csproj", "{EA51516A-FA38-459D-876A-32C6B360CD63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBusLite.ApiSample", "MessageBusLite.ApiSample\MessageBusLite.ApiSample.csproj", "{EA51516A-FA38-459D-876A-32C6B360CD63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBusLite", "EventBusLite\EventBusLite.csproj", "{7316278F-523B-4B9E-9D26-020C2B849997}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusLite", "MessageBusLite\MessageBusLite.csproj", "{7316278F-523B-4B9E-9D26-020C2B849997}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

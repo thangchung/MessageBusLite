@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reactive;
 using System.Reactive.Linq;
 using Microsoft.AspNetCore.Mvc;
-using System.Reactive;
 
-namespace EventBusLite.ApiSample.Controllers
+namespace MessageBusLite.ApiSample.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        private readonly IEventBus _eventBus;
+        private readonly IMessageBus _eventBus;
 
-        public ValuesController(IEventBus eventBus)
+        public ValuesController(IMessageBus eventBus)
         {
             _eventBus = eventBus;
         }
@@ -19,8 +19,7 @@ namespace EventBusLite.ApiSample.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            _eventBus.Publish(new TestEvent {Name = "abc"});
-
+            _eventBus.Publish(new TestEvent { Name = "abc" });
             return new[] { "value1", "value2" };
         }
 
@@ -46,12 +45,20 @@ namespace EventBusLite.ApiSample.Controllers
         }
     }
 
-    public class TestEvent : IEvent
+    public class TestEvent : IMessage
     {
         public string Name { get; set; }
     }
 
-    public class TestHandler : IEventBusHandler<TestEvent>
+    public class FirstTestHandler : IMessageBusHandler<TestEvent>
+    {
+        public IObservable<Unit> Handle(TestEvent message)
+        {
+            return Observable.Return(new Unit());
+        }
+    }
+
+    public class SecondTestHandler : IMessageBusHandler<TestEvent>
     {
         public IObservable<Unit> Handle(TestEvent message)
         {
