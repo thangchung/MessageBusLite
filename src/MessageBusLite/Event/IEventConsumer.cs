@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MessageBusLite
+namespace MessageBusLite.Event
 {
-    public interface IMessageConsumer : IDisposable
+    public interface IEventConsumer : IDisposable
     {
-        IMessageSubscriber Subscriber { get; }
+        IEventSubscriber Subscriber { get; }
         IEnumerable<IMessageHandler> EventHandlers { get; }
     }
 }

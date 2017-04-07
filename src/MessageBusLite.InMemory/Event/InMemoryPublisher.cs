@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Reactive;
 using System.Reactive.Linq;
+using MessageBusLite.Event;
 
-namespace MessageBusLite.InMemory
+namespace MessageBusLite.InMemory.Event
 {
-    public class InMemoryPublisher : IMessageBus
+    public class InMemoryPublisher : IEventBus
     {
-        private readonly IPubSub _subscriber;
+        private readonly IPubSubSync _subscriber;
         private readonly string _channelName;
 
-        public InMemoryPublisher(IPubSub subscriber, string channelName)
+        public InMemoryPublisher(IPubSubSync subscriber, string channelName)
         {
             _subscriber = subscriber;
             _channelName = channelName;

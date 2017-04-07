@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using Autofac;
+using MessageBusLite.Event;
+using MessageBusLite.Redis.Event;
 using StackExchange.Redis;
 
 namespace MessageBusLite.Redis
@@ -11,7 +13,7 @@ namespace MessageBusLite.Redis
         {
             var options = new ConfigurationOptions
             {
-                EndPoints = { "localhost" }
+                EndPoints = { "localhost" } // TODO: need to allow the configuration
             };
 
             var connectionMultiplexer = ConnectionMultiplexer.Connect(options);
@@ -20,22 +22,22 @@ namespace MessageBusLite.Redis
                 .As<IConnectionMultiplexer>()
                 .SingleInstance();
 
-            builder.Register(x => new RedisPublisher(connectionMultiplexer.GetSubscriber(), "notify"))
-                .As<IMessageBus>()
+            builder.Register(x => new RedisPublisher(connectionMultiplexer.GetSubscriber(), "event-bus"))
+                .As<IEventBus>()
                 .SingleInstance();
 
             builder.RegisterAssemblyTypes(registerAssembly)
                 .AsImplementedInterfaces();
 
-            builder.RegisterInstance(new RedisSubscriber(connectionMultiplexer.GetSubscriber(), "notify"))
-                .Named<IMessageSubscriber>("EventSubscriber");
+            builder.RegisterInstance(new RedisSubscriber(connectionMultiplexer.GetSubscriber(), "event-bus"))
+                .Named<IEventSubscriber>("EventSubscriber");
 
             builder.Register(x =>
-                new MessageConsumer(
-                    x.ResolveNamed<IMessageSubscriber>("EventSubscriber"),
+                new EventConsumer(
+                    x.ResolveNamed<IEventSubscriber>("EventSubscriber"),
                     (IEnumerable<IMessageHandler>)x.Resolve(typeof(IEnumerable<IMessageHandler>))
                     )
-                ).As<IMessageConsumer>();
+                ).As<IEventConsumer>();
 
             return builder;
         }

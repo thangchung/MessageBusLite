@@ -2,6 +2,7 @@
 using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using MessageBusLite.Event;
 using MessageBusLite.InMemory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,7 +37,7 @@ namespace MessageBusLite.ApiSample
             builder.Populate(services);
             var container = builder.Build();
 
-            container.Resolve<IMessageConsumer>().Subscriber.Subscribe();
+            container.Resolve<IEventConsumer>().Subscriber.Subscribe();
 
             return container.Resolve<IServiceProvider>();
         }

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Reactive;
 using System.Reactive.Linq;
+using MessageBusLite.Event;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 
-namespace MessageBusLite.Redis
+namespace MessageBusLite.Redis.Event
 {
-    public class RedisSubscriber : IMessageSubscriber
+    public class RedisSubscriber : IEventSubscriber
     {
         private readonly string _channelName;
         private readonly ISubscriber _subscriber;

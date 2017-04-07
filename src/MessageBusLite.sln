@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBusLite.ApiSample", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusLite", "MessageBusLite\MessageBusLite.csproj", "{7316278F-523B-4B9E-9D26-020C2B849997}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusLite.InMemory", "MessageBusLite.InMemory\MessageBusLite.InMemory.csproj", "{23E45223-7678-4B66-97FC-4312E1FD0998}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{3AD587BB-9B86-479C-85C9-8C7BFB60B67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusLite.Redis", "MessageBusLite.Redis\MessageBusLite.Redis.csproj", "{000F8F8A-9322-4547-8AA7-566C317E46DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,19 @@ Global
 		{7316278F-523B-4B9E-9D26-020C2B849997}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7316278F-523B-4B9E-9D26-020C2B849997}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7316278F-523B-4B9E-9D26-020C2B849997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23E45223-7678-4B66-97FC-4312E1FD0998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23E45223-7678-4B66-97FC-4312E1FD0998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23E45223-7678-4B66-97FC-4312E1FD0998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23E45223-7678-4B66-97FC-4312E1FD0998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{000F8F8A-9322-4547-8AA7-566C317E46DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{000F8F8A-9322-4547-8AA7-566C317E46DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{000F8F8A-9322-4547-8AA7-566C317E46DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{000F8F8A-9322-4547-8AA7-566C317E46DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA51516A-FA38-459D-876A-32C6B360CD63} = {3AD587BB-9B86-479C-85C9-8C7BFB60B67F}
 	EndGlobalSection
 EndGlobal

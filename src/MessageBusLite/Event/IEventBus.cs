@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reactive;
 
-namespace MessageBusLite
+namespace MessageBusLite.Event
 {
-    public interface IMessageBus
+    public interface IEventBus
     {
         IObservable<Unit> Publish<T>(T message);
     }

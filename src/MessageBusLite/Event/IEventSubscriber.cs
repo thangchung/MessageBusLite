@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reactive;
 
-namespace MessageBusLite
+namespace MessageBusLite.Event
 {
-    public interface IMessageSubscriber : IDisposable
+    public interface IEventSubscriber : IDisposable
     {
         IObservable<Unit> Subscribe();
         event EventHandler<MessageReceivedEventArgs> MessageReceived;

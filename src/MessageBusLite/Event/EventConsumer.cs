@@ -4,12 +4,12 @@ using System.Linq;
 using System.Reactive;
 using System.Reflection;
 
-namespace MessageBusLite
+namespace MessageBusLite.Event
 {
-    public class MessageConsumer : IMessageConsumer
+    public class EventConsumer : IEventConsumer
     {
-        public MessageConsumer(
-            IMessageSubscriber subscriber,
+        public EventConsumer(
+            IEventSubscriber subscriber,
             IEnumerable<IMessageHandler> eventHandlers)
         {
             Subscriber = subscriber;
@@ -37,7 +37,7 @@ namespace MessageBusLite
 
         public IEnumerable<IMessageHandler> EventHandlers { get; }
 
-        public IMessageSubscriber Subscriber { get; }
+        public IEventSubscriber Subscriber { get; }
 
         public void Dispose()
         {
